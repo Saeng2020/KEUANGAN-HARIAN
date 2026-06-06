@@ -25,3 +25,4 @@ http://localhost:8080
 - `assets/js/menu.js` untuk menu dinamis.
 - `assets/js/app.js` untuk routing, render UI, validasi form, modal, toast, dan simulasi CRUD.
 # KEUANGAN-HARIAN
+# KEUANGAN-HARIAN

@@ -1,0 +1,63 @@
+<section class="mx-auto max-w-4xl space-y-6">
+  <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <div>
+      <h2 id="transaction-form-heading" class="text-lg font-semibold text-slate-900">Tambah Transaksi</h2>
+      <p class="mt-1 text-sm text-slate-500">Lengkapi data transaksi untuk memperbarui cashflow lokal.</p>
+    </div>
+    <button data-nav-target="transactions" class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">Kembali ke Daftar</button>
+  </div>
+
+  <form id="transaction-form" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <input id="transaction-id" type="hidden" />
+    <div id="transaction-form-errors" class="mb-5 hidden rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700"></div>
+
+    <div class="grid gap-5 md:grid-cols-2">
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Tipe transaksi</span>
+        <select id="transaction-type" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50">
+          <option value="income">Pemasukan</option>
+          <option value="expense">Pengeluaran</option>
+        </select>
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Nominal</span>
+        <input id="transaction-amount" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50" type="number" min="0" inputmode="numeric" placeholder="Contoh: 250000" />
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Kategori</span>
+        <select id="transaction-category" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50"></select>
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Metode pembayaran</span>
+        <select id="transaction-method" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50"></select>
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Tanggal</span>
+        <input id="transaction-date" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50" type="date" />
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Status</span>
+        <select id="transaction-status" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50">
+          <option value="Selesai">Selesai</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </label>
+    </div>
+
+    <label class="mt-5 block">
+      <span class="text-sm font-semibold text-slate-700">Catatan</span>
+      <textarea id="transaction-note" class="mt-2 min-h-28 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50" placeholder="Tambahkan catatan transaksi"></textarea>
+    </label>
+
+    <div class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+      <button type="button" data-nav-target="transactions" class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">Batalkan</button>
+      <button type="reset" class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">Reset Form</button>
+      <button type="submit" class="rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700">Simpan Transaksi</button>
+    </div>
+  </form>
+</section>

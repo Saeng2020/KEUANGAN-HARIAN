@@ -1,0 +1,51 @@
+<section class="mx-auto max-w-4xl space-y-6">
+  <div>
+    <h2 class="text-lg font-semibold text-slate-900">Pengaturan Bisnis</h2>
+    <p class="mt-1 text-sm text-slate-500">Simpan preferensi tampilan dan target keuangan untuk simulasi lokal.</p>
+  </div>
+
+  <form id="settings-form" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div class="grid gap-5 md:grid-cols-2">
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Nama bisnis</span>
+        <input id="settings-business-name" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50" type="text" placeholder="Nama bisnis" />
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Mata uang</span>
+        <select id="settings-currency" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50">
+          <option value="IDR">IDR - Rupiah</option>
+          <option value="USD">USD - US Dollar</option>
+          <option value="SGD">SGD - Singapore Dollar</option>
+        </select>
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Format tanggal</span>
+        <select id="settings-date-format" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50">
+          <option value="dd MMM yyyy">01 Jun 2026</option>
+          <option value="dd/mm/yyyy">01/06/2026</option>
+          <option value="yyyy-mm-dd">2026-06-01</option>
+        </select>
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-700">Target saldo bulanan</span>
+        <input id="settings-monthly-target" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50" type="number" min="0" inputmode="numeric" placeholder="Contoh: 15000000" />
+      </label>
+
+      <label class="block md:col-span-2">
+        <span class="text-sm font-semibold text-slate-700">Tema tampilan</span>
+        <select id="settings-theme" class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50">
+          <option value="light">Terang</option>
+          <option value="system">Ikuti Sistem</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+      <button type="button" data-action="settings-reset" class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">Reset Pengaturan</button>
+      <button type="submit" class="rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700">Simpan Pengaturan</button>
+    </div>
+  </form>
+</section>

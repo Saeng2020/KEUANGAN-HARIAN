@@ -1,0 +1,30 @@
+<section class="space-y-6">
+  <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <div>
+      <h2 class="text-lg font-semibold text-slate-900">Daftar Transaksi</h2>
+      <p id="transactions-count" class="mt-1 text-sm text-slate-500">Memuat transaksi...</p>
+    </div>
+    <button data-nav-target="transaction-form" class="rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700">Tambah Transaksi</button>
+  </div>
+
+  <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div class="grid gap-3 md:grid-cols-[minmax(0,1fr)_220px]">
+      <label class="block">
+        <span class="sr-only">Cari transaksi</span>
+        <input id="transactions-search" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50" type="search" placeholder="Cari catatan, kategori, metode, status..." />
+      </label>
+      <label class="block">
+        <span class="sr-only">Filter tipe transaksi</span>
+        <select id="transactions-type-filter" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-50">
+          <option value="all">Semua tipe</option>
+          <option value="income">Pemasukan</option>
+          <option value="expense">Pengeluaran</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div id="transactions-empty"></div>
+  <div id="transactions-table" class="hidden md:block"></div>
+  <div id="transactions-cards" class="space-y-3 md:hidden"></div>
+</section>

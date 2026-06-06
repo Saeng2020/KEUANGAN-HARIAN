@@ -8,6 +8,7 @@
   var toastRoot = null;
   var currentRoute = { id: "dashboard", params: new URLSearchParams() };
   var pendingDelete = null;
+  var confirmCallback = null;
   var routeRequest = 0;
 
   var filters = {
@@ -36,9 +37,9 @@
 
   async function loadComponents() {
     var components = [
-      { target: "sidebar-shell", path: "components/sidebar.html" },
-      { target: "topbar-shell", path: "components/topbar.html" },
-      { target: "mobile-nav-shell", path: "components/mobile-nav.html" },
+      { target: "sidebar", path: "components/sidebar.html" },
+      { target: "topbar", path: "components/topbar.html" },
+      { target: "mobile-nav", path: "components/mobile-nav.html" },
     ];
 
     try {
@@ -60,7 +61,7 @@
         }
       });
 
-      renderNavigation("dashboard");
+      setActiveMenu("dashboard");
       updateShellStats();
     } catch (error) {
       if (appContent) {
@@ -85,7 +86,7 @@
     var item = Menu.find(route.id) || Menu.find("dashboard");
 
     currentRoute = { id: item.id, params: route.params };
-    renderNavigation(item.id);
+    setActiveMenu(item.id);
     updateTopbar(item);
     renderLoading();
 
@@ -155,6 +156,18 @@
   function refreshCurrentRoute() {
     runPageRenderer(currentRoute.id, currentRoute.params);
     updateShellStats();
+  }
+
+  function setActiveMenu(page) {
+    renderNavigation(page);
+  }
+
+  function formatCurrency(amount) {
+    return Store.formatCurrency(amount);
+  }
+
+  function formatDate(date) {
+    return Store.formatDate(date);
   }
 
   function renderNavigation(activeId) {
@@ -227,7 +240,7 @@
       return;
     }
 
-    target.textContent = Store.formatCurrency(summarizeTransactions(Store.state.transactions).balance);
+      target.textContent = formatCurrency(summarizeTransactions(Store.state.transactions).balance);
   }
 
   function renderLoading() {
@@ -284,6 +297,10 @@
       togglePaymentMethod(id);
     } else if (action === "delete-confirm") {
       confirmDelete();
+    } else if (action === "confirm-callback") {
+      if (typeof confirmCallback === "function") {
+        confirmCallback();
+      }
     } else if (action === "modal-close") {
       closeModal();
     } else if (action === "report-reset") {

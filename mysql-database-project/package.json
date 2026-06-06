@@ -1,0 +1,19 @@
+{
+  "name": "mysql-database-project",
+  "version": "1.0.0",
+  "description": "A project for managing a MySQL database with schema, migrations, and seed data.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "migrate": "mysql -u <username> -p <password> < db/migrations/001_create_tables.sql && mysql -u <username> -p <password> < db/migrations/002_add_indexes.sql",
+    "seed": "mysql -u <username> -p <password> < db/seeds/seed_data.sql"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
